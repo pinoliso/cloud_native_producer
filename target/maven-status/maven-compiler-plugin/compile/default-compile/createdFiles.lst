@@ -1,0 +1,4 @@
+com\duoc\config\RabbitMQConfig.class
+com\duoc\service\ProducerService.class
+com\duoc\App.class
+com\duoc\controller\ProductorController.class

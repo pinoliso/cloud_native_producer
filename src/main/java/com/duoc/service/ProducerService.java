@@ -12,7 +12,11 @@ public class ProducerService {
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
-    public void sendMessage(String message) {
-        rabbitTemplate.convertAndSend(RabbitMQConfig.EXCHANGE_NAME, RabbitMQConfig.ROUTING_KEY, message);
+    public void sendSignal(String message) {
+        rabbitTemplate.convertAndSend(RabbitMQConfig.EXCHANGE_NAME_SIGNALS, RabbitMQConfig.ROUTING_KEY_SIGNALS, message);
+    }
+
+    public void sendSummary(String message) {
+        rabbitTemplate.convertAndSend(RabbitMQConfig.EXCHANGE_NAME_SUMMARY, RabbitMQConfig.ROUTING_KEY_SUMMARY, message);
     }
 }

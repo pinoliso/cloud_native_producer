@@ -1,0 +1,18 @@
+services:
+  consumer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+        - 8080:8080
+    networks:
+      - rabbitmq_network
+    environment:
+      - SPRING_RABBITMQ_HOST=rabbitmq_cn
+      - SPRING_RABBITMQ_PORT=5672
+      - SPRING_RABBITMQ_USERNAME=guest
+      - SPRING_RABBITMQ_PASSWORD=guest
+
+networks:
+  rabbitmq_network:
+    driver: bridge

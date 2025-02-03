@@ -12,9 +12,15 @@ public class ProductorController {
     @Autowired
     private ProducerService producer;
 
-    @PostMapping("/send")
-    public String sendMessage(@RequestParam("message") String message) {
-        producer.sendMessage(message);
-        return "Mensaje enviado: " + message;
+    @PostMapping("/signal")
+    public String sendSignal(@RequestParam("message") String message) {
+        producer.sendSignal(message);
+        return "Signal enviado: " + message;
+    }
+
+    @PostMapping("/summary")
+    public String sendSummary(@RequestParam("message") String message) {
+        producer.sendSummary(message);
+        return "Summary enviado: " + message;
     }
 }
